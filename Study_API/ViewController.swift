@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "기온 측정기"
         // Do any additional setup after loading the view.
     }
 
