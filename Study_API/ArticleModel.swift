@@ -12,7 +12,11 @@ protocol ArticleModelProtocol {
 }
 
 class ArticleModel {
+    
+    var delegate:ArticleModelProtocol?
+    
     func getArticle() {
         
     }
+    delegate?.articleRetrieved(article: [Article])
 }
