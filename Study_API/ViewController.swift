@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     //MARK: ArticleModelProtocol functions
     func articleRetrived(article: [Article]) {
-        print("article retirved from article model!")
+        print("article retirved from article model!")   
     }
 }
 
