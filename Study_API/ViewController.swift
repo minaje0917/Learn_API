@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ArticleModelProtocol {
+    
     
     var model = ArticleModel()
 
@@ -15,11 +16,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         model.delegate = self
-        model.getArticle()
+        model.getArticles()
     }
     
     //MARK: ArticleModelProtocol functions
-    func articleRetrived(article: [Article]) {
+    func articleRetrieved(article: [Article]) {
         print("article retirved from article model!")   
     }
 }

@@ -15,7 +15,7 @@ class ArticleModel {
     
     var delegate:ArticleModelProtocol?
     
-    func getArticle() {
+    func getArticles() {
         
     }
     delegate?.articleRetrieved(article: [Article])
