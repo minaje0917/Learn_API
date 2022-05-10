@@ -27,7 +27,21 @@ class ArticleModel {
         }
         // 4. URLSession을 만들어준다.
         let session = URLSession.shared
-        // 5. 
+        // 5. URLSession을 이용하여 dataTask를 만들어준다.
+        let datatask = session.dataTask(with: url!) {
+            (data, response, error) in
+            // 6. error가 없고 data를 성공적으로 불러왔을때만 동작합니다.
+            if error == nil && data != nil {
+                // 7. JSON 데이터를 swift 인스턴스 객체로 바꿔주기 위해서 decoder 객체를 생성합니다.
+                let decoder = JSONDecoder()
+                // 8. decode함수는 예기치못한 에러를 발생할 수 있으므로 try-catch문을 작성해준다. swift에서는 do-catch문이라고 부른다.
+                do {
+                    // 9. try문 앞에 붙여서 JSON데이터를 이전에 만들어준 ArticleService모양의 swift 인스턴스로 파싱해준다.
+                    let articleService = try decoder.decode(ArticleService.self, from: data!)
+                    // 10.데이터를 성공적으로 받아왔다면 일전에 만들어놓은 ArticleRetrieved 함수를 이용해서 articles를 ViewController에 보내줍니다. 여기서 주의해야할 점은 Aritcle
+                }
+            }
+        }
     }
     delegate?.articleRetrieved(article: [Article])
 }
