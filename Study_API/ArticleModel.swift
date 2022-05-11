@@ -38,10 +38,17 @@ class ArticleModel {
                 do {
                     // 9. try문 앞에 붙여서 JSON데이터를 이전에 만들어준 ArticleService모양의 swift 인스턴스로 파싱해준다.
                     let articleService = try decoder.decode(ArticleService.self, from: data!)
-                    // 10.데이터를 성공적으로 받아왔다면 일전에 만들어놓은 ArticleRetrieved 함수를 이용해서 articles를 ViewController에 보내줍니다. 여기서 주의해야할 점은 Aritcle
+                    // 10.데이터를 성공적으로 받아왔다면 일전에 만들어놓은 ArticleRetrieved 함수를 이용해서 articles를 ViewController에 보내줍니다. 여기서 주의해야할 점은 AritcleModel의 getArticles 함수는 background thread에서 동작하고 있다. 하지만 ViewController에서 articles을 받아오면 바로 화면에 띄워줘야하기 때문에, UI관련 로직은 많은 프로세스를 요구하므로 main thread에서 articlesRetrieved 함수를 동작시켜주어야합니다. 때문에 DispatchQueue.main.async구문읋 써 주었다.
+                    DispatchQueue.main.async {
+                        self.delegate?.articleRetrieved(article: articleService.article!)
+                    }
+                }
+                catch {
+                    print("Error parsing the json")
                 }
             }
         }
+        // 11. datatask 준비가 완료되었다면 datatask를 실행시켜줍니다.
+        datatask.resume()
     }
-    delegate?.articleRetrieved(article: [Article])
 }
