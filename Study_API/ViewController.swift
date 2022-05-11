@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, ArticleModelProtocol {
+class ViewController: UIViewController {
     
-    
+    var articles = [Article]()
     var model = ArticleModel()
 
     override func viewDidLoad() {
@@ -19,9 +19,13 @@ class ViewController: UIViewController, ArticleModelProtocol {
         model.getArticles()
     }
     
-    //MARK: ArticleModelProtocol functions
-    func articleRetrieved(article: [Article]) {
-        print("article retirved from article model!")   
-    }
+    
 }
 
+extension ViewController:ArticleModelProtocol {
+    //MARK: ArticleModelProtocol functions
+    func articleRetrieved(article: [Article]) {
+        print("article retirved from article model!")
+        self.articles = article
+    }
+}
