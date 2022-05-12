@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
         model.delegate = self
         model.getArticles()
     }
@@ -24,10 +26,28 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController:ArticleModelProtocol {
+extension ViewController: ArticleModelProtocol {
     //MARK: ArticleModelProtocol functions
     func articleRetrieved(article: [Article]) {
         print("article retirved from article model!")
         self.articles = article
+        tableView.reloadData()
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.articles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath)
+        // TODO customize it
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }

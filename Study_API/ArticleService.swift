@@ -11,5 +11,5 @@ import Foundation
 struct ArticleService: Codable {
     var status:String?
     var totalResults:Int?
-    var article:[Article]?
+    var articles:[Article]?
 }
