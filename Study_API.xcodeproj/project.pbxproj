@@ -17,6 +17,7 @@
 		7705DEDA281D40CD001F87DF /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705DED9281D40CD001F87DF /* ArticleService.swift */; };
 		7705DEDC281D4236001F87DF /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705DEDB281D4236001F87DF /* ArticleModel.swift */; };
 		7787EB6D282C054F00BD924F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7787EB6C282C054F00BD924F /* DetailViewController.swift */; };
+		7787EB73282CCDEE00BD924F /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7787EB72282CCDEE00BD924F /* ArticleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7705DED9281D40CD001F87DF /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
 		7705DEDB281D4236001F87DF /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		7787EB6C282C054F00BD924F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		7787EB72282CCDEE00BD924F /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleCell.swift; path = ../ArticleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				7705DED9281D40CD001F87DF /* ArticleService.swift */,
 				7705DEDB281D4236001F87DF /* ArticleModel.swift */,
 				7787EB6C282C054F00BD924F /* DetailViewController.swift */,
+				7787EB72282CCDEE00BD924F /* ArticleCell.swift */,
 			);
 			path = Study_API;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7787EB73282CCDEE00BD924F /* ArticleCell.swift in Sources */,
 				7705DEDA281D40CD001F87DF /* ArticleService.swift in Sources */,
 				7705DED8281D3F65001F87DF /* Article.swift in Sources */,
 				7705DEC8281D2D88001F87DF /* ViewController.swift in Sources */,
