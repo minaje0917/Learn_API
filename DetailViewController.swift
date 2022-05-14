@@ -11,10 +11,15 @@ import WebKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
+    var url: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
 }

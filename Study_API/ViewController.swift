@@ -17,11 +17,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
         model.delegate = self
         model.getArticles()
     }
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let indexPath = tableView.indexPathsForSelectedRows
+        
+       // guard indexPath != nil else{
+            //return
+        //}
+        
+        //let selectedArticle = articles[indexPath!.row]
+        
+        //let detailVc = segue.destination as! DetailViewController
+        //detailVc.url = selectedArticle.url!
+   // }
     
     
 }
@@ -43,6 +57,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
+        
         let article = self.articles[indexPath.row]
         // TODO customize it
         cell.displayArticle(article: article)

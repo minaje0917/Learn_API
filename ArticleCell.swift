@@ -14,6 +14,9 @@ class ArticleCell: UITableViewCell {
     var articleToDisplay: Article?
     
     func displayArticle(article: Article) {
+        headLineText.text = ""
+        headLineImage.image = nil
+        
         articleToDisplay = article
         
         headLineText.text = articleToDisplay!.title
@@ -30,13 +33,14 @@ class ArticleCell: UITableViewCell {
             print("Couldn't create url object")
             return
         }
-        
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: url!) { (data, response, error) in
             if (error == nil && data != nil) {
-                DispatchQueue.main.async {
-                    self.headLineImage.image = UIImage(data: data!)
+                if (self.articleToDisplay!.urlToImage == urlString){
+                    DispatchQueue.main.async {
+                        self.headLineImage.image = UIImage(data: data!)
+                    }
                 }
             }
         }
