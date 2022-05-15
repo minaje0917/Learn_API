@@ -14,6 +14,7 @@ class ArticleCell: UITableViewCell {
     var articleToDisplay: Article?
     
     func displayArticle(article: Article) {
+        
         headLineText.text = ""
         headLineImage.image = nil
         
