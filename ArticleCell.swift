@@ -15,12 +15,20 @@ class ArticleCell: UITableViewCell {
     
     
     func displayArticle(article: Article) {
+        headLineText.text = ""
+        headLineImage.image = nil
+        headLineText.alpha = 0
+        headLineImage.alpha = 0
         
         articleToDisplay = article
         
         headLineText.text = articleToDisplay!.title
         
         //이미지 url이 없는 기사가 있을수도 있습니다. image url이 없다면 여기서 함수를 종료 시킵니다.
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseOut, animations: {
+            self.headLineText.alpha = 1
+        }, completion: nil)
+        
         guard articleToDisplay!.urlToImage != nil else {
             return
         }
@@ -39,6 +47,9 @@ class ArticleCell: UITableViewCell {
                 if (self.articleToDisplay!.urlToImage == urlString){
                     DispatchQueue.main.async {
                         self.headLineImage.image = UIImage(data: data!)
+                        UIView.animate(withDuration:0.6, delay: 0, options: .curveEaseOut, animations: {
+                            self.headLineImage.alpha = 1
+                        }, completion: nil)
                     }
                 }
             }
