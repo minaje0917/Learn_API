@@ -15,8 +15,24 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        guard self.url != nil else {
+            return
+        }
+        
+        let url = URL(string: self.url!)
+        
+        guard url != nil else {
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url!)
+        
+        webView.load(urlRequest)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

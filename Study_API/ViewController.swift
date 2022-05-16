@@ -24,18 +24,21 @@ class ViewController: UIViewController {
         model.delegate = self
         model.getArticles()
     }
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let indexPath = tableView.indexPathsForSelectedRows
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-       // guard indexPath != nil else{
-            //return
-        //}
+        let indexPath = tableView.indexPathForSelectedRow
         
-        //let selectedArticle = articles[indexPath!.row]
+        guard indexPath != nil else{
+            return
+        }
         
-        //let detailVc = segue.destination as! DetailViewController
-        //detailVc.url = selectedArticle.url!
-   // }
+        let selectedArticle = articles[indexPath!.row]
+        
+        //indexPath.row
+        
+        let detailVc = segue.destination as! DetailViewController
+        detailVc.url = selectedArticle.url!
+   }
     
     
 }

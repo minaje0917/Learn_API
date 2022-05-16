@@ -13,10 +13,8 @@ class ArticleCell: UITableViewCell {
     @IBOutlet weak var headLineImage: UIImageView!
     var articleToDisplay: Article?
     
+    
     func displayArticle(article: Article) {
-        
-        headLineText.text = ""
-        headLineImage.image = nil
         
         articleToDisplay = article
         
